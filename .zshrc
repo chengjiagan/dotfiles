@@ -1,12 +1,13 @@
 # Proxy setting
+PROXY="127.0.0.1:18080"
 function pon() {
-    export https_proxy=http://127.0.0.1:18080 http_proxy=http://127.0.0.1:18080 all_proxy=socks5://127.0.0.1:18080
+    export https_proxy=http://$PROXY http_proxy=http://$PROXY all_proxy=socks5://$PROXY
 }
 function poff() {
     unset https_proxy http_proxy all_proxy
 }
 # Proxy on by default.
-pon
+# pon
 
 # -----------------
 # Zsh configuration

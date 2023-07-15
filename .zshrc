@@ -16,7 +16,7 @@ export PATH=$HOME/Library/Python/3.9/bin:$HOME/.local/bin:$PATH
 export ZSH="$HOME/.oh-my-zsh"
 # Install oh-my-zsh if not installed
 if [[ ! -d $ZSH ]]; then
-  sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended --keep-zshrc
+  sh -c "$(curl -fsSL https://gitee.com/mirrors/oh-my-zsh/raw/master/tools/install.sh)" "" --unattended --keep-zshrc
 fi
 
 # Set name of the theme to load --- if set to "random", it will

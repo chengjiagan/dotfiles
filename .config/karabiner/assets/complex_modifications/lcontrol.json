@@ -1,8 +1,8 @@
 {
-  "title": "left control mod",
+  "title": "caps_lock mod",
   "rules": [
     {
-      "description": "left_control to capslock if press alone",
+      "description": "caps_lock to left_control if press with other keys",
       "manipulators": [
         {
           "type": "basic",
@@ -12,7 +12,7 @@
                 "any"
               ]
             },
-            "key_code": "left_control"
+            "key_code": "caps_lock"
           },
           "to": [
             {
@@ -23,30 +23,6 @@
           "to_if_alone": [
             {
               "key_code": "caps_lock"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "description": "left control + space as right shift",
-      "manipulators": [
-        {
-          "type": "basic",
-          "from": {
-            "modifiers": {
-              "mandatory": [
-                "left_control"
-              ],
-              "optional": [
-                "caps_lock"
-              ]
-            },
-            "key_code": "spacebar"
-          },
-          "to": [
-            {
-              "key_code": "right_shift"
             }
           ]
         }

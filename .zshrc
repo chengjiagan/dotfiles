@@ -107,7 +107,7 @@ fi
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-  git brew macos fzf docker kubectl helm
+  git brew macos fzf docker kubectl helm gitignore
   zsh-syntax-highlighting
   zsh-autosuggestions
   autoupdate

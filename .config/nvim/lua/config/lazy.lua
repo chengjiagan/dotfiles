@@ -6,7 +6,7 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(vim.env.LAZY or lazypath)
 
-local colorscheme = "one_monokai"
+local colorscheme = "tokyonight"
 
 require("lazy").setup({
   spec = {

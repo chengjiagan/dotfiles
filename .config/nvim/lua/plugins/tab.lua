@@ -8,9 +8,6 @@ return {
   },
   {
     "hrsh7th/nvim-cmp",
-    dependencies = {
-      "hrsh7th/cmp-emoji",
-    },
     ---@param opts cmp.ConfigSchema
     opts = function(_, opts)
       local has_words_before = function()
@@ -38,15 +35,18 @@ return {
           end
         end, { "i", "s" }),
         ["<S-Tab>"] = cmp.mapping(function(fallback)
-          if cmp.visible() then
-            cmp.select_prev_item()
-          elseif luasnip.jumpable(-1) then
+          if luasnip.jumpable(-1) then
             luasnip.jump(-1)
           else
             fallback()
           end
         end, { "i", "s" }),
       })
+
+      -- unset Enter key mapping
+      opts.mapping["<CR>"] = nil
+      opts.mapping["<S-CR>"] = nil
+      opts.mapping["<C-CR>"] = nil
     end,
   },
 }

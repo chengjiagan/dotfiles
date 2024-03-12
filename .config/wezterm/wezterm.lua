@@ -20,11 +20,7 @@ config.hide_tab_bar_if_only_one_tab = true
 
 -- font
 config.font_size = 17
-config.font = wezterm.font("JetBrainsMono Nerd Font")
--- config.font = wezterm.font_with_fallback({
--- 	"JetBrains Mono NL",
--- 	"Symbols Nerd Font",
--- })
+config.font = wezterm.font("JetBrainsMono NF")
 
 -- and finally, return the configuration to wezterm
 return config

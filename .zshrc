@@ -20,6 +20,9 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
+# detect OS from https://stackoverflow.com/questions/394230/how-to-detect-the-os-from-a-bash-script
+if [[ "$OSTYPE" == "darwin"* ]]; then # macOS specific setting
+
 # GNU command line tools
 tools=()
 for t in ${tools[@]}; do
@@ -28,6 +31,8 @@ done
 
 # Add ssh key to ssh-agent
 ssh-add --apple-use-keychain ~/.ssh/id_ed25519 &> /dev/null
+
+fi # macOS specific setting
 
 # auto install zcomet
 if [[ ! -f ${ZDOTDIR:-${HOME}}/.zcomet/bin/zcomet.zsh ]]; then

@@ -43,11 +43,13 @@ source ${ZDOTDIR:-${HOME}}/.zcomet/bin/zcomet.zsh
 # load plugins
 zcomet load ohmyzsh
 zcomet load ohmyzsh plugins/git
-zcomet load ohmyzsh plugins/brew
 zcomet load ohmyzsh plugins/gitignore
 zcomet load ohmyzsh plugins/fzf
 zcomet load ohmyzsh plugins/docker
 zcomet load ohmyzsh plugins/zoxide
+if [[ "$OSTYPE" == "darwin"* ]]; then # macOS specific setting
+zcomet load ohmyzsh plugins/brew
+fi # macOS specific setting
 zcomet load zsh-users/zsh-completions
 zcomet load zdharma-continuum/fast-syntax-highlighting
 zcomet load romkatv/powerlevel10k

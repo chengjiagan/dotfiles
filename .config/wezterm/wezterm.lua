@@ -11,7 +11,7 @@ if wezterm.config_builder then
 end
 
 -- appearance
-config.color_scheme = "Tokyo Night Moon"
+config.color_scheme = "onedarkpro"
 config.window_decorations = "RESIZE"
 
 -- tab bar

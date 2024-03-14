@@ -17,17 +17,13 @@ pon
 setopt HIST_IGNORE_ALL_DUPS
 # Set editor default keymap to emacs (`-e`) or vi (`-v`)
 bindkey -e
-# Prompt for spelling correction of commands.
-setopt CORRECT
 # Remove path separator from WORDCHARS.
 WORDCHARS=${WORDCHARS//[\/]}
-# Disable automatic widget re-binding on each precmd. This can be set when
-# zsh-users/zsh-autosuggestions is the last module in your ~/.zimrc.
-ZSH_AUTOSUGGEST_MANUAL_REBIND=1
 
 ## Install and load plugins
 source $HOME/.plugins.zsh
 
 # alias
+alias vim="nvim"
 alias dotfiles="/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
 

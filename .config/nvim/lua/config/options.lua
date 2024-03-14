@@ -8,3 +8,5 @@ vim.opt.clipboard = ""
 vim.opt.wrap = true
 -- use 4 spaces for tabs
 vim.opt.tabstop = 4
+-- disable auto format
+vim.g.autoformat = false

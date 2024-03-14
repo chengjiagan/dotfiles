@@ -6,7 +6,7 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(vim.env.LAZY or lazypath)
 
-local colorscheme = "tokyonight"
+local colorscheme = "onedark"
 
 require("lazy").setup({
   spec = {
@@ -37,7 +37,7 @@ require("lazy").setup({
     -- version = "*", -- try installing the latest stable version for plugins that support semver
   },
   install = { colorscheme = { colorscheme } },
-  checker = { enabled = true }, -- automatically check for plugin updates
+  checker = { enabled = false }, -- don't automatically check for plugin updates
   performance = {
     rtp = {
       -- disable some rtp plugins

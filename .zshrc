@@ -20,6 +20,15 @@ bindkey -e
 # Remove path separator from WORDCHARS.
 WORDCHARS=${WORDCHARS//[\/]}
 
+# Editor
+if [[ "${TERM_PROGRAM:-tty}" == *vscode* ]]; then
+  export VISUAL="code --wait"
+  export EDITOR="code --wait"
+else
+  export VISUAL=nvim
+  export EDITOR=nvim
+fi
+
 ## Install and load plugins
 source $HOME/.plugins.zsh
 

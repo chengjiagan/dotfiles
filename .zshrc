@@ -1,5 +1,4 @@
 ## proxy setting
-PROXY="127.0.0.1:7890"
 function pon() {
     export http_proxy=http://$PROXY
     export https_proxy=http://$PROXY
@@ -13,6 +12,7 @@ function poff() {
 pon
 
 ## zsh config
+export HISTFILE="$XDG_STATE_HOME/zsh/history"
 # Remove older command from the history if a duplicate is to be added.
 setopt HIST_IGNORE_ALL_DUPS
 # Set editor default keymap to emacs (`-e`) or vi (`-v`)

@@ -5,6 +5,6 @@ export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_STATE_HOME="$HOME/.local/state"
 
 # custom env
-if [ -f "$HOME/.zshenv.custom" ]; then
-  source "$HOME/.zshenv.custom"
+if [ -f "$HOME/.zshenv.local" ]; then
+  source "$HOME/.zshenv.local"
 fi

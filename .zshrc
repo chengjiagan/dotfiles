@@ -6,7 +6,7 @@ function pon() {
     export no_proxy=*.local,localhost,127.0.0.1,10.0.0.0/8,172.16.0.0/12,192.168.0.0/16
 }
 function poff() {
-    unset https_proxy http_proxy no_proxy
+    unset https_proxy http_proxy all_proxy no_proxy
 }
 # proxy on by default.
 pon

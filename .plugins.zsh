@@ -65,6 +65,8 @@ zinit light zsh-users/zsh-autosuggestions
 zstyle ':autocomplete:*' delay 0.2  # seconds (float)
 # Preserve Zsh-default keybindings
 bindkey '^B' .backward-char
+bindkey '^[[D' .backward-char
+bindkey '^[OD' .backward-char
 bindkey '^A' .beginning-of-line
 bindkey '^E' .end-of-line
 bindkey '^[b' .backward-word

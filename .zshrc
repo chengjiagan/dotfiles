@@ -1,5 +1,10 @@
 ## proxy setting
 function pon() {
+    if [[ -z "${PROXY+x}" ]]; then
+        echo "PROXY is not set!"
+        return
+    fi
+
     export http_proxy=http://$PROXY
     export https_proxy=http://$PROXY
     export all_proxy=socks5://$PROXY
@@ -20,19 +25,23 @@ bindkey -e
 # Remove path separator from WORDCHARS.
 WORDCHARS=${WORDCHARS//[\/]}
 
+## Install and load plugins
+source $HOME/.plugins.zsh
+
+# alias
+alias dotfiles="/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
+
 # Editor
 if [[ "${TERM_PROGRAM:-tty}" == *vscode* ]]; then
   export VISUAL="code --wait"
   export EDITOR="code --wait"
 else
-  export VISUAL=nvim
-  export EDITOR=nvim
+  export VISUAL=vim
+  export EDITOR=vim
 fi
 
-## Install and load plugins
-source $HOME/.plugins.zsh
-
-# alias
-alias vim="nvim"
-alias dotfiles="/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
+# local config
+if [ -f "$HOME/.zshrc.local" ]; then
+  source "$HOME/.zshrc.local"
+fi
 

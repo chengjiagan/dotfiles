@@ -26,7 +26,6 @@ zinit light-mode for \
     zdharma-continuum/zinit-annex-patch-dl \
     zdharma-continuum/zinit-annex-rust
 
-zinit light marlonrichert/zsh-autocomplete
 zinit light zimfw/environment
 zinit light zimfw/input
 zinit light zimfw/utility
@@ -45,10 +44,7 @@ zinit light-mode for \
     depth"1" \
     romkatv/powerlevel10k
 zinit light zdharma-continuum/fast-syntax-highlighting
-
-# Prompt for spelling correction of commands.
-ENABLE_CORRECTION=true
-zinit snippet OMZL::correction.zsh
+zinit light marlonrichert/zsh-autocomplete
 
 # wezterm integration
 WEZTERM_SHELL_SKIP_SEMANTIC_ZONES=1 # skil OSC 133 and we set this by powerlevel10k
@@ -64,12 +60,12 @@ zinit light zsh-users/zsh-autosuggestions
 # Wait with autocompletion until typing stops for a certain amount of seconds
 zstyle ':autocomplete:*' delay 0.2  # seconds (float)
 # Preserve Zsh-default keybindings
-bindkey '^B' .backward-char
-bindkey '^[[D' .backward-char
-bindkey '^[OD' .backward-char
-bindkey '^A' .beginning-of-line
-bindkey '^E' .end-of-line
-bindkey '^[b' .backward-word
+# bindkey '^B' .backward-char
+# bindkey '^[[D' .backward-char
+# bindkey '^[OD' .backward-char
+# bindkey '^A' .beginning-of-line
+# bindkey '^E' .end-of-line
+# bindkey '^[b' .backward-word
 
 # Load Powerlevel10k config
 source ~/.p10k.zsh

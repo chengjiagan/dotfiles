@@ -4,6 +4,8 @@
 	signingKey = key::ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMXK2im/7XQfv3vknPggRa7syGwvdvLN0QPsuo/36/Q1 waterlemongan@outlook.com
 [gpg]
 	format = ssh
+[gpg "ssh"]
+  program = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign"
 [commit]
 	gpgSign = true
 [init]

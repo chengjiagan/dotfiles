@@ -13,8 +13,6 @@ function pon() {
 function poff() {
     unset https_proxy http_proxy all_proxy no_proxy
 }
-# proxy on by default.
-pon
 
 ## zsh config
 export HISTFILE="$XDG_STATE_HOME/zsh/history"

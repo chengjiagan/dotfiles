@@ -15,6 +15,9 @@ function poff() {
 }
 
 ## zsh config
+if [[ ! -d $XDG_STATE_HOME ]]; then
+    mkdir -p $XDG_STATE_HOME
+fi
 export HISTFILE="$XDG_STATE_HOME/zsh/history"
 # Remove older command from the history if a duplicate is to be added.
 setopt HIST_IGNORE_ALL_DUPS

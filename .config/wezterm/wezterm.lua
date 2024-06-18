@@ -12,15 +12,13 @@ end
 
 -- appearance
 config.color_scheme = "onedarkpro"
-config.window_decorations = "RESIZE"
 
 -- tab bar
 config.use_fancy_tab_bar = false
 config.hide_tab_bar_if_only_one_tab = true
 
--- font
+-- font: use default font of wezterm
 config.font_size = 17
-config.font = wezterm.font("JetBrainsMono NF")
 
 -- and finally, return the configuration to wezterm
 return config

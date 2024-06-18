@@ -31,7 +31,6 @@ zinit light zimfw/input
 zinit light zimfw/utility
 zinit light zimfw/exa
 zinit snippet OMZL::functions.zsh
-zinit snippet OMZL::termsupport.zsh
 zinit snippet OMZL::directories.zsh
 zinit snippet OMZP::gitignore
 zinit for \
@@ -47,9 +46,14 @@ zinit light zdharma-continuum/fast-syntax-highlighting
 zinit light marlonrichert/zsh-autocomplete
 
 # wezterm integration
-WEZTERM_SHELL_SKIP_SEMANTIC_ZONES=1 # skil OSC 133 and we set this by powerlevel10k
-WEZTERM_SHELL_SKIP_CWD=1 # skip OSC 7 and we set this by omz's termsupport.zsh
-zinit snippet https://github.com/wez/wezterm/blob/main/assets/shell-integration/wezterm.sh
+if [[ ${TERM_PROGRAM} == "WezTerm" ]]; then
+  WEZTERM_SHELL_SKIP_SEMANTIC_ZONES=1 # skil OSC 133 and we set this by powerlevel10k
+  zinit snippet https://github.com/wez/wezterm/blob/main/assets/shell-integration/wezterm.sh
+fi
+# iterm2 integration
+if [[ ${TERM_PROGRAM} == "iTerm.app" ]]; then
+  zinit snippet https://iterm2.com/shell_integration/zsh
+fi
 
 # Disable automatic widget re-binding on each precmd. This can be set when
 # zsh-users/zsh-autosuggestions is the last plugin.

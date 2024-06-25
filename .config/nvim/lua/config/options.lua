@@ -6,7 +6,9 @@
 vim.opt.clipboard = ""
 -- enable line wrap
 vim.opt.wrap = true
--- use 4 spaces for tabs
-vim.opt.tabstop = 4
+-- tabs setting
+vim.opt.tabstop = 8
+vim.opt.shiftwidth = 4
+vim.opt.expandtab = true
 -- disable auto format
 vim.g.autoformat = false

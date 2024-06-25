@@ -29,9 +29,6 @@ WORDCHARS=${WORDCHARS//[\/]}
 ## Install and load plugins
 source $HOME/.plugins.zsh
 
-# alias
-alias dotfiles="/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
-
 # Editor
 if [[ "${TERM_PROGRAM:-tty}" == *vscode* ]]; then
   export VISUAL="code --wait"

@@ -17,8 +17,9 @@ config.color_scheme = "onedarkpro"
 config.use_fancy_tab_bar = false
 config.hide_tab_bar_if_only_one_tab = true
 
--- font: use default font of wezterm
-config.font_size = 17
+-- font:
+config.font = wezterm.font "Cascadia Code NF"
+config.font_size = 18
 
 -- and finally, return the configuration to wezterm
 return config

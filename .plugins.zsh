@@ -29,10 +29,11 @@ zinit light-mode for \
 zinit light zimfw/environment
 zinit light zimfw/input
 zinit light zimfw/utility
-zinit light zimfw/exa
 zinit snippet OMZL::functions.zsh
 zinit snippet OMZL::directories.zsh
 zinit snippet OMZP::gitignore
+zinit snippet OMZP::pyenv
+zinit snippet OMZP::docker
 zinit for \
     if'[[ "$OSTYPE" == "darwin"* ]]' \
     OMZP::brew

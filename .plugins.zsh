@@ -26,9 +26,6 @@ zinit light-mode for \
     zdharma-continuum/zinit-annex-patch-dl \
     zdharma-continuum/zinit-annex-rust
 
-zinit light zimfw/environment
-zinit light zimfw/input
-zinit light zimfw/utility
 zinit snippet OMZL::functions.zsh
 zinit snippet OMZL::directories.zsh
 zinit snippet OMZP::gitignore
@@ -43,7 +40,6 @@ zinit light-mode for \
 zinit light-mode for \
     depth"1" \
     romkatv/powerlevel10k
-zinit light zdharma-continuum/fast-syntax-highlighting
 zinit light marlonrichert/zsh-autocomplete
 
 # wezterm integration
@@ -56,22 +52,16 @@ if [[ ${TERM_PROGRAM} == "iTerm.app" ]]; then
   zinit snippet https://iterm2.com/shell_integration/zsh
 fi
 
-# Disable automatic widget re-binding on each precmd. This can be set when
-# zsh-users/zsh-autosuggestions is the last plugin.
-ZSH_AUTOSUGGEST_MANUAL_REBIND=1
-zinit light zsh-users/zsh-autosuggestions
+# Autosuggestions & fast-syntax-highlighting
+zinit ice wait lucid atinit"ZPLGM[COMPINIT_OPTS]=-C; zpcompinit; zpcdreplay"
+zinit light zdharma-continuum/fast-syntax-highlighting
+# zsh-autosuggestions
+zinit ice wait lucid atload"!_zsh_autosuggest_start"
+zinit load zsh-users/zsh-autosuggestions
 
 # zsh-autocomplete setting
 # Wait with autocompletion until typing stops for a certain amount of seconds
 zstyle ':autocomplete:*' delay 0.2  # seconds (float)
-# Preserve Zsh-default keybindings
-# bindkey '^B' .backward-char
-# bindkey '^[[D' .backward-char
-# bindkey '^[OD' .backward-char
-# bindkey '^A' .beginning-of-line
-# bindkey '^E' .end-of-line
-# bindkey '^[b' .backward-word
 
 # Load Powerlevel10k config
 source ~/.p10k.zsh
-

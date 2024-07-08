@@ -35,9 +35,6 @@ zinit for \
     if'[[ "$OSTYPE" == "darwin"* ]]' \
     OMZP::brew
 zinit light-mode for \
-    blockf atpull'zinit creinstall -q .' \
-    zsh-users/zsh-completions
-zinit light-mode for \
     depth"1" \
     romkatv/powerlevel10k
 zinit light marlonrichert/zsh-autocomplete
@@ -53,11 +50,13 @@ if [[ ${TERM_PROGRAM} == "iTerm.app" ]]; then
 fi
 
 # Autosuggestions & fast-syntax-highlighting
-zinit ice wait lucid atinit"ZPLGM[COMPINIT_OPTS]=-C; zpcompinit; zpcdreplay"
-zinit light zdharma-continuum/fast-syntax-highlighting
-# zsh-autosuggestions
-zinit ice wait lucid atload"!_zsh_autosuggest_start"
-zinit load zsh-users/zsh-autosuggestions
+zinit wait lucid for \
+ atinit"ZINIT[COMPINIT_OPTS]=-C; zicompinit; zicdreplay" \
+    zdharma-continuum/fast-syntax-highlighting \
+ blockf \
+    zsh-users/zsh-completions \
+ atload"!_zsh_autosuggest_start" \
+    zsh-users/zsh-autosuggestions
 
 # zsh-autocomplete setting
 # Wait with autocompletion until typing stops for a certain amount of seconds

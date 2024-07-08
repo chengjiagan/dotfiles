@@ -26,6 +26,9 @@ zinit light-mode for \
     zdharma-continuum/zinit-annex-patch-dl \
     zdharma-continuum/zinit-annex-rust
 
+zinit light zimfw/environment
+zinit light zimfw/input
+zinit light zimfw/utility
 zinit snippet OMZL::functions.zsh
 zinit snippet OMZL::directories.zsh
 zinit snippet OMZP::gitignore

@@ -73,22 +73,12 @@ zinit light-mode for \
     zdharma-continuum/zinit-annex-bin-gem-node \
     NICHOLAS85/z-a-eval \
     zimfw/environment \
-    depth'1' atload'source ~/.p10k.zsh' romkatv/powerlevel10k \
+    depth'1' atload'source ~/.p10k.zsh' \
+        romkatv/powerlevel10k \
     if'[[ ${TERM_PROGRAM} == "WezTerm" ]]' \
         https://github.com/wez/wezterm/blob/main/assets/shell-integration/wezterm.sh \
     if'[[ ${TERM_PROGRAM} == "iTerm.app" ]]' \
         https://iterm2.com/shell_integration/zsh \
-    # atload'
-    #     zstyle ":autocomplete:*" delay 0.1  # seconds (float);
-    #     bindkey              "^I" menu-select;
-    #     bindkey "$terminfo[kcbt]" menu-select;
-    #     bindkey -M menuselect              "^I"         menu-complete;
-    #     bindkey -M menuselect "$terminfo[kcbt]" reverse-menu-complete;
-    #     bindkey -M menuselect  "^[[D" .backward-char  "^[OD" .backward-char;
-    #     bindkey -M menuselect  "^B"   .backward-char  "^[b"  .backward-word;
-    #     bindkey -M menuselect  "^[[C"  .forward-char  "^[OC"  .forward-char;
-    #     bindkey -M menuselect  "^F"    .forward-char  "^[f"   .forward-word;' \
-    #     marlonrichert/zsh-autocomplete \
 
 # turbo mode
 zinit light-mode wait lucid for \
@@ -102,8 +92,12 @@ zinit light-mode wait lucid for \
     blockf id-as'pyenv-init' has'pyenv' \
         eval'pyenv init -' run-atpull \
         zdharma-continuum/null \
-    blockf atload'zicompinit; zicdreplay' \
-        zsh-users/zsh-completions \
+    blockf id-as'fzf-init' has'fzf' \
+        eval'fzf --zsh' run-atpull \
+        zdharma-continuum/null \
+    blockf zsh-users/zsh-completions \
+    atinit'zicompinit; zicdreplay' \
+        Aloxaf/fzf-tab \
     atload"!_zsh_autosuggest_start" \
         zsh-users/zsh-autosuggestions \
     zdharma-continuum/fast-syntax-highlighting \

@@ -17,6 +17,7 @@ function poff() {
 }
 # set var in .zshenv.local if need proxy on by default
 if (( $+DEFAULT_PROXY_ON && $+PROXY )); then
+    echo "default"
     _pon
 fi
 
@@ -45,9 +46,12 @@ else
   export EDITOR=vim
 fi
 
+## Alias
+alias la="ls -al"
+
 # local config
-if [ -f "$HOME/.zshrc.local" ]; then
-  source "$HOME/.zshrc.local"
+if [ -f "$XDG_CONFIG_HOME/zsh/local-zshrc.zsh" ]; then
+  source "$XDG_CONFIG_HOME/zsh/local-zshrc.zsh"
 fi
 
 ## Install and load plugins
@@ -67,34 +71,39 @@ autoload -Uz _zinit
 # not turbo
 zinit light-mode for \
     zdharma-continuum/zinit-annex-bin-gem-node \
+    NICHOLAS85/z-a-eval \
     zimfw/environment \
-    depth'1' romkatv/powerlevel10k \
+    depth'1' atload'source ~/.p10k.zsh' romkatv/powerlevel10k \
     if'[[ ${TERM_PROGRAM} == "WezTerm" ]]' \
         https://github.com/wez/wezterm/blob/main/assets/shell-integration/wezterm.sh \
     if'[[ ${TERM_PROGRAM} == "iTerm.app" ]]' \
         https://iterm2.com/shell_integration/zsh \
-    zdharma-continuum/fast-syntax-highlighting \
-    atload'
-        bindkey              "^I" menu-select;
-        bindkey "$terminfo[kcbt]" menu-select;
-        bindkey -M menuselect              "^I"         menu-complete;
-        bindkey -M menuselect "$terminfo[kcbt]" reverse-menu-complete;
-        bindkey -M menuselect  "^[[D" .backward-char  "^[OD" .backward-char;
-        bindkey -M menuselect  "^B"   .backward-char  "^[b"  .backward-word;
-        bindkey -M menuselect  "^[[C"  .forward-char  "^[OC"  .forward-char;
-        bindkey -M menuselect  "^F"    .forward-char  "^[f"   .forward-word;' \
-        marlonrichert/zsh-autocomplete \
+    # atload'
+    #     zstyle ":autocomplete:*" delay 0.1  # seconds (float);
+    #     bindkey              "^I" menu-select;
+    #     bindkey "$terminfo[kcbt]" menu-select;
+    #     bindkey -M menuselect              "^I"         menu-complete;
+    #     bindkey -M menuselect "$terminfo[kcbt]" reverse-menu-complete;
+    #     bindkey -M menuselect  "^[[D" .backward-char  "^[OD" .backward-char;
+    #     bindkey -M menuselect  "^B"   .backward-char  "^[b"  .backward-word;
+    #     bindkey -M menuselect  "^[[C"  .forward-char  "^[OC"  .forward-char;
+    #     bindkey -M menuselect  "^F"    .forward-char  "^[f"   .forward-word;' \
+    #     marlonrichert/zsh-autocomplete \
 
 # turbo mode
 zinit light-mode wait lucid for \
     zimfw/input \
     zimfw/utility \
-    OMZP::gitignore \
-    has'brew' OMZP::brew \
-    blockf atload"zicompinit; zicdreplay" \
+    blockf OMZP::gitignore \
+    blockf has'brew' OMZP::brew \
+    blockf id-as'docker-completion' has'docker' \
+        eval'docker completion zsh' run-atpull \
+        zdharma-continuum/null \
+    blockf id-as'pyenv-init' has'pyenv' \
+        eval'pyenv init -' run-atpull \
+        zdharma-continuum/null \
+    blockf atload'zicompinit; zicdreplay' \
         zsh-users/zsh-completions \
     atload"!_zsh_autosuggest_start" \
         zsh-users/zsh-autosuggestions \
-
-# Load Powerlevel10k config
-source ~/.p10k.zsh
+    zdharma-continuum/fast-syntax-highlighting \

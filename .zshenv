@@ -6,6 +6,6 @@ export XDG_STATE_HOME="$HOME/.local/state"
 export PATH="$HOME/.local/bin:$PATH"
 
 # local env
-if [ -f "$HOME/.zshenv.local" ]; then
-  source "$HOME/.zshenv.local"
+if [ -f "$XDG_CONFIG_HOME/zsh/local-zshenv.zsh" ]; then
+  source "$XDG_CONFIG_HOME/zsh/local-zshenv.zsh"
 fi

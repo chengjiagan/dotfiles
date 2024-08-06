@@ -70,15 +70,14 @@ autoload -Uz _zinit
 
 # not turbo
 zinit light-mode for \
-    zdharma-continuum/zinit-annex-bin-gem-node \
     NICHOLAS85/z-a-eval \
     zimfw/environment \
-    depth'1' atload'source ~/.p10k.zsh' \
-        romkatv/powerlevel10k \
     if'[[ ${TERM_PROGRAM} == "WezTerm" ]]' \
         https://github.com/wez/wezterm/blob/main/assets/shell-integration/wezterm.sh \
     if'[[ ${TERM_PROGRAM} == "iTerm.app" ]]' \
         https://iterm2.com/shell_integration/zsh \
+    id-as'starship-init' has'starship' eval'starship init zsh' run-atpull \
+        zdharma-continuum/null \
 
 # turbo mode
 zinit light-mode wait lucid for \

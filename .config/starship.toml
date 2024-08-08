@@ -30,7 +30,7 @@ format = "[$user]($style)"
 show_always = true
 
 [hostname]
-format = "@[$ssh_symbol$hostname]($style) in "
+format = "@[$hostname]($style) in "
 ssh_only = false
 
 [status]

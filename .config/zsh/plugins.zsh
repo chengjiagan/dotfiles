@@ -27,6 +27,7 @@ znap source zimfw/utility
 (( $+commands[starship] )) && znap eval starship 'starship init zsh'
 (( $+commands[docker] )) && znap eval docker 'docker completion zsh'
 (( $+commands[pyenv] )) && znap eval pyenv 'pyenv init -'
+(( $+commands[pyenv-virtualenv] )) && znap eval pyenv-virtualenv 'pyenv virtualenv-init -'
 (( $+commands[fzf] )) && znap eval fzf 'fzf --zsh'
 
 # other plugins

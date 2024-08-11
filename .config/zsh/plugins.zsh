@@ -1,10 +1,10 @@
 # Install znap
 # Download Znap, if it's not there yet.
 ZNAP_ROOT=$XDG_DATA_HOME/znap
-[[ -r $ZNAP_ROOT/znap.zsh ]] ||
+[[ -r $ZNAP_ROOT/znap/znap.zsh ]] ||
     git clone --depth 1 -- \
-        https://github.com/marlonrichert/zsh-snap.git $ZNAP_ROOT
-source $ZNAP_ROOT/znap.zsh  # Start Znap
+        https://github.com/marlonrichert/zsh-snap.git $ZNAP_ROOT/znap
+source $ZNAP_ROOT/znap/znap.zsh  # Start Znap
 
 # Terminal integration
 [[ "${TERM_PROGRAM}" = "WezTerm" ]] && \

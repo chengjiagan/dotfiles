@@ -36,6 +36,7 @@ znap source zimfw/utility
 (( $+commands[pyenv] )) && znap eval pyenv 'pyenv init -'
 (( $+commands[pyenv-virtualenv] )) && znap eval pyenv-virtualenv 'pyenv virtualenv-init -'
 (( $+commands[fzf] )) && znap eval fzf 'fzf --zsh'
+(( $+commands[zoxide] )) && znap eval zoxide 'zoxide init zsh'
 
 # other plugins
 znap source zsh-users/zsh-completions

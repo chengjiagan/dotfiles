@@ -45,4 +45,5 @@ znap source zsh-users/zsh-history-substring-search
 znap source Aloxaf/fzf-tab
 znap source zdharma-continuum/fast-syntax-highlighting
 
-source ~/.p10k.zsh
+POWERLEVEL9K_CONFIG_FILE=$XDG_CONFIG_HOME/zsh/p10k.zsh
+source $POWERLEVEL9K_CONFIG_FILE

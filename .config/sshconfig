@@ -2,6 +2,3 @@ Host *
 	TCPKeepAlive yes
 	ServerAliveInterval 30
 	ForwardAgent yes
-	ControlMaster auto
-	ControlPersist yes
-	ControlPath ${XDG_CACHE_HOME}/ssh-%r@%h:%p.sock

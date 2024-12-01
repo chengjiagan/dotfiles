@@ -92,6 +92,7 @@ alias vi="nvim"
 alias vim="nvim"
 alias view="nvim -R"
 alias vimdiff="nvim -d"
+alias lvim="NVIM_APPNAME=nvim-lazyvim nvim" # LazyVim
 
 # Set shell options: http://zsh.sourceforge.net/Doc/Release/Options.html.
 setopt glob_dots     # no special treatment for file names with a leading dot

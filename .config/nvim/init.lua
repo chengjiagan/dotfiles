@@ -18,9 +18,6 @@ vim.opt.number = true
 -- Enable mouse mode, can be useful for resizing splits for example!
 vim.opt.mouse = 'a'
 
--- Don't show the mode, since it's already in the status line
-vim.opt.showmode = false
-
 -- Sync clipboard between OS and Neovim.
 --  Schedule the setting after `UiEnter` because it can increase startup-time.
 --  Remove this option if you want your OS clipboard to remain independent.
@@ -59,7 +56,7 @@ vim.opt.splitbelow = true
 --  See `:help 'list'`
 --  and `:help 'listchars'`
 vim.opt.list = true
-vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
+vim.opt.listchars = { tab = '> ', trail = '·', nbsp = '␣' }
 
 -- Preview substitutions live, as you type!
 vim.opt.inccommand = 'split'
@@ -172,15 +169,6 @@ vim.keymap.set("n", "<leader>w", "<c-w>", { desc = "Windows", remap = true })
 vim.keymap.set("n", "<leader>-", "<C-W>s", { desc = "Split Window Below", remap = true })
 vim.keymap.set("n", "<leader>|", "<C-W>v", { desc = "Split Window Right", remap = true })
 vim.keymap.set("n", "<leader>wd", "<C-W>c", { desc = "Delete Window", remap = true })
-
--- tabs
-vim.keymap.set("n", "<leader><tab>l", "<cmd>tablast<cr>", { desc = "Last Tab" })
-vim.keymap.set("n", "<leader><tab>o", "<cmd>tabonly<cr>", { desc = "Close Other Tabs" })
-vim.keymap.set("n", "<leader><tab>f", "<cmd>tabfirst<cr>", { desc = "First Tab" })
-vim.keymap.set("n", "<leader><tab><tab>", "<cmd>tabnew<cr>", { desc = "New Tab" })
-vim.keymap.set("n", "<leader><tab>]", "<cmd>tabnext<cr>", { desc = "Next Tab" })
-vim.keymap.set("n", "<leader><tab>d", "<cmd>tabclose<cr>", { desc = "Close Tab" })
-vim.keymap.set("n", "<leader><tab>[", "<cmd>tabprevious<cr>", { desc = "Previous Tab" })
 
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
@@ -334,8 +322,7 @@ vim.opt.rtp:prepend(lazypath)
 --    :Lazy update
 require('lazy').setup({
   { -- Detect tabstop and shiftwidth automatically
-    'NMAC427/guess-indent.nvim', 
-    enable
+    'NMAC427/guess-indent.nvim',
   },
 
   {
@@ -519,8 +506,8 @@ require('lazy').setup({
     end,
   },
 
-  { -- Collection of various small independent plugins/modules
-    'echasnovski/mini.nvim',
+  { -- Add, change, and delete surrounding
+    "echasnovski/mini.surround",
     keys = {
       { "gsa", desc = "Add Surrounding", mode = { "n", "v" } },
       { "gsd", desc = "Delete Surrounding" },
@@ -529,36 +516,24 @@ require('lazy').setup({
       { "gsh", desc = "Highlight Surrounding" },
       { "gsr", desc = "Replace Surrounding" },
     },
-    config = function()
-      -- Better Around/Inside textobjects
-      require('mini.ai').setup { n_lines = 500 }
+    opts = {
+      mappings = {
+        add = "gsa", -- Add surrounding in Normal and Visual modes
+        delete = "gsd", -- Delete surrounding
+        find = "gsf", -- Find surrounding (to the right)
+        find_left = "gsF", -- Find surrounding (to the left)
+        highlight = "gsh", -- Highlight surrounding
+        replace = "gsr", -- Replace surrounding
+        update_n_lines = "gsn", -- Update `n_lines`
+      },
+    },
+  },
 
-      -- Add/delete/replace surroundings (brackets, quotes, etc.)
-      require('mini.surround').setup({
-        mappings = {
-          add = "gsa", -- Add surrounding in Normal and Visual modes
-          delete = "gsd", -- Delete surrounding
-          find = "gsf", -- Find surrounding (to the right)
-          find_left = "gsF", -- Find surrounding (to the left)
-          highlight = "gsh", -- Highlight surrounding
-          replace = "gsr", -- Replace surrounding
-        },
-      })
-
-      -- Auto pairs
-      require('mini.pair').setup({
-        modes = { insert = true, command = true, terminal = false },
-        -- skip autopair when next character is one of these
-        skip_next = [=[[%w%%%'%[%"%.%`%$]]=],
-        -- skip autopair when the cursor is inside these treesitter nodes
-        skip_ts = { "string" },
-        -- skip autopair when next character is closing pair
-        -- and there are more closing pairs than opening pairs
-        skip_unbalanced = true,
-        -- better deal with markdown code blocks
-        markdown = true,
-      })
-    end,
+  { -- Better around/inside text objects
+    "echasnovski/mini.ai",
+    opts = {
+      n_lines = 500,
+    },
   },
 
   { -- Highlight, edit, and navigate code

@@ -1,0 +1,9 @@
+# Font setting
+font-family = "Cascadia Code NF"
+font-size = 17
+# Shell integration is set by zsh config
+shell-integration = none
+# Dim foreground color
+foreground = #A9B2C0
+# Remove proxy icon on macOS
+macos-titlebar-proxy-icon = hidden

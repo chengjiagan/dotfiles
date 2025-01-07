@@ -268,16 +268,6 @@ vim.api.nvim_create_autocmd("FileType", {
   end,
 })
 
--- wrap and check for spell in text filetypes
-vim.api.nvim_create_autocmd("FileType", {
-  group = augroup("wrap_spell"),
-  pattern = { "text", "plaintex", "typst", "gitcommit", "markdown" },
-  callback = function()
-    vim.opt_local.wrap = true
-    vim.opt_local.spell = true
-  end,
-})
-
 -- Fix conceallevel for json files
 vim.api.nvim_create_autocmd({ "FileType" }, {
   group = augroup("json_conceal"),
@@ -296,6 +286,26 @@ vim.api.nvim_create_autocmd({ "BufWritePre" }, {
     end
     local file = vim.uv.fs_realpath(event.match) or event.match
     vim.fn.mkdir(vim.fn.fnamemodify(file, ":p:h"), "p")
+  end,
+})
+
+-- Override some filetype options
+vim.api.nvim_create_autocmd({ "FileType" }, {
+  group = augroup("ft_sshconfig"),
+  pattern = { "sshconfig" },
+  callback = function(event)
+    vim.opt_local.tabstop = 8
+    vim.opt_local.shiftwidth = 8
+    vim.opt_local.expandtab = false -- Use tabs instead of spaces
+  end,
+})
+
+vim.api.nvim_create_autocmd({ "FileType" }, {
+  group = augroup("ft_gitcommit"),
+  pattern = { "gitcommit" },
+  callback = function(event)
+    vim.opt_local.textwidth = 0 -- Disable wrapping
+    vim.opt_local.spell = false -- Turn off spell check
   end,
 })
 

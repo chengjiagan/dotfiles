@@ -7,6 +7,7 @@ This repo includes my personal dotfiles.
 Depend on `stow`:
 
 ```sh
+./install/install-omz.sh
 stow -d config -t $HOME --no-folding .
 ```
 

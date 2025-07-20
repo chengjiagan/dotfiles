@@ -7,7 +7,7 @@ This repo includes my personal dotfiles.
 Depend on `stow`:
 
 ```sh
-stow . --no-folding
+stow -d config -t $HOME --no-folding .
 ```
 
 ## SSH config

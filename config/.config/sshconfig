@@ -2,3 +2,4 @@ Host *
 	TCPKeepAlive yes
 	ServerAliveInterval 30
 	ForwardAgent yes
+	AddKeysToAgent yes

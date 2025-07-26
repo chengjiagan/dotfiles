@@ -5,6 +5,25 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
+# Proxy Setting
+function pon() {
+    if [[ -z "${PROXY+x}" ]]; then
+        echo "PROXY is not set!"
+        return
+    fi
+
+    export http_proxy=http://$PROXY
+    export https_proxy=http://$PROXY
+    export all_proxy=socks5://$PROXY
+    export no_proxy=*.local,localhost,127.0.0.1,10.0.0.0/8,172.16.0.0/12,192.168.0.0/16
+}
+function poff() {
+    unset https_proxy http_proxy all_proxy no_proxy
+}
+if [[ -n "${PROXY+x}" ]]; then
+    pon
+fi
+
 # Update PATH
 export PATH="$HOME/.local/bin:$PATH"
 

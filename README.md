@@ -17,11 +17,3 @@ Add the following line to the end of `~/.ssh/config`:
 ```
 Include ~/.config/sshconfig
 ```
-
-## Git config
-
-Add the following section to the end of `~/.gitconfig`:
-```
-[include]
-	path = ~/.config/gitconfig
-```

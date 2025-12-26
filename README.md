@@ -2,6 +2,12 @@
 
 This repo includes my personal dotfiles.
 
+## Dependencies
+
+```
+git zsh stow zoxide fzf direnv eza
+```
+
 ## Install
 
 Depend on `stow`:

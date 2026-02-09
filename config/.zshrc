@@ -95,6 +95,10 @@ if (( $+commands[nvim] )); then
   alias view="nvim -R"
   alias vimdiff="nvim -d"
 fi
+if (( $+commands[code] )); then
+  export VISUAL="code --wait"
+  export EDITOR="code --wait"
+fi
 
 # Load powerlevel10k theme setting
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh

@@ -1,7 +1,10 @@
 # Font setting
 font-family = "Cascadia Code NF"
+# font-family = "Maple Mono Normal NF CN"
 font-size = 18
 # Dim foreground color
 foreground = #A9B2C0
 # Use option key as alt key on macOS
 macos-option-as-alt = true
+# Shell integration
+shell-integration-features = ssh-env

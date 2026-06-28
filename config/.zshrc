@@ -6,6 +6,7 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi
 
 # Proxy Setting
+export PROXY=127.0.0.1:7890
 function pon() {
     if [[ -z "${PROXY+x}" ]]; then
         echo "PROXY is not set!"
@@ -95,7 +96,7 @@ if (( $+commands[nvim] )); then
   alias view="nvim -R"
   alias vimdiff="nvim -d"
 fi
-if (( $+commands[code] )); then
+if [[ "$TERM_PROGRAM" == "vscode" ]]; then
   export VISUAL="code --wait"
   export EDITOR="code --wait"
 fi

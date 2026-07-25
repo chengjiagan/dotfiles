@@ -52,7 +52,7 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 plugins=(
   # OMZ plugins
-  brew direnv docker eza fzf git gitignore
+  brew docker eza fzf git gitignore
   iterm2 ssh ssh-agent zoxide
   # third-party plugins
   zsh-autosuggestions
